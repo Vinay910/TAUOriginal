@@ -1,0 +1,2 @@
+01:20:42.655 [TestNG-test=System Test-1] INFO  utils.EventReporter - Form Authentication is clicked successfully on https://the-internet.herokuapp.com/
+01:20:44.398 [TestNG-test=System Test-1] INFO  utils.EventReporter - Login is clicked successfully on https://the-internet.herokuapp.com/login
