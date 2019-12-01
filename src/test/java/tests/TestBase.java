@@ -73,11 +73,11 @@ public class TestBase {
 	public void SetUp() {
 		prop = System.getProperties();
 		try {
-			prop.load(new FileInputStream(new File("../TAU/src/main/resources/Prop.properties")));
+			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", "../TAU/src/main/resources/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
 		if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
 			driver = new EventFiringWebDriver(new ChromeDriver());
 		} else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
@@ -107,9 +107,9 @@ public class TestBase {
 			File file = camera.getScreenshotAs(OutputType.FILE);
 			try {
 				long time=System.currentTimeMillis();
-				new File("../TAU/src/main/java/screenshot/"+time).mkdir();
+				new File(System.getProperty("user.dir")+"/src/main/java/screenshot/"+time).mkdir();
 				Files.move(file, new File(
-						"../TAU/src/main/java/screenshot/"+time+"/" + result.getName()+".jpg"));
+						System.getProperty("user.dir")+"/src/main/java/screenshot/"+time+"/" + result.getName()+".jpg"));
 			} catch (Exception e) {
 				System.out.println("Screenshot is not working");
 			}
