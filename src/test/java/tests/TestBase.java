@@ -1,12 +1,7 @@
 package tests;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +15,6 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
