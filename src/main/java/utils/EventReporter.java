@@ -9,7 +9,7 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class EventReporter implements WebDriverEventListener {
 	
-	private static Logger infoLog=LogManager.getLogger(EventReporter.class.getName());
+	static Logger infoLog=LogManager.getLogger(EventReporter.class.getName());
 	private String elementName;
 	private String pageName;
 

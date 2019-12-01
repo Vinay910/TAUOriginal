@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Complete Suite">
-	<listeners>
-		<listener class-name="utils.ExtentReporterNG"/>
-	</listeners>
-	<test name="Functional Test">
-		<classes>
-			<class name="tests.LoginSuccesstest" />
-		</classes>
-	</test> <!-- Functional Test -->
+  <test name="System Test">
+    <classes>
+      <class name="tests.LoginSuccesstest"/>
+      <class name="infinteScroll.InfiniteScrollTest"/>
+      <class name="hoverOver.HoverOverTest"/>
+      <class name="navigation.NavigationTest"/>
+      <class name="dropDown.DropDownTest"/>
+      <class name="fileUpload.FileUploadTest"/>
+      <class name="keyesPress.KeysPressTest"/>
+      <class name="horizontalSlider.HorizontalSliderTest"/>
+      <class name="wYSIWYNG.WYSIWYNGTest"/>
+      <class name="retrieveEmail.RetrieveEmailTest"/>
+      <class name="javaScriptAlert.JavaScriptAlertTest"/>
+      <class name="dynamicLoading.DynamicHiddenTest"/>
+      <class name="frames.NestedFrameTest"/>
+      <class name="dynamicLoading.DynamicRenderingTest"/>
+    </classes>
+  </test> <!-- System Test -->
 </suite> <!-- Complete Suite -->
