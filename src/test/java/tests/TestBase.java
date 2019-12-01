@@ -2,6 +2,7 @@ package tests;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -109,7 +110,12 @@ public class TestBase {
 
 	@AfterClass
 	public void TearDown() {
+		Object[] win=driver.getWindowHandles().toArray();
+		for(int i=0;i<win.length;i++)
+		{
+		driver.switchTo().window(win[i].toString());
 		driver.close();
+		}
 	}
 
 	@AfterMethod
