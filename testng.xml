@@ -7,19 +7,6 @@
 	<test name="Functional Test">
 		<classes>
 			<class name="tests.LoginSuccesstest" />
-			<class name="infinteScroll.InfiniteScrollTest" />
-			<class name="hoverOver.HoverOverTest" />
-			<class name="navigation.NavigationTest" />
-			<class name="dropDown.DropDownTest" />
-			<class name="fileUpload.FileUploadTest" />
-			<class name="keyesPress.KeysPressTest" />
-			<class name="horizontalSlider.HorizontalSliderTest" />
-			<class name="wYSIWYNG.WYSIWYNGTest" />
-			<class name="retrieveEmail.RetrieveEmailTest" />
-			<class name="javaScriptAlert.JavaScriptAlertTest" />
-			<class name="dynamicLoading.DynamicHiddenTest" />
-			<class name="frames.NestedFrameTest" />
-			<class name="dynamicLoading.DynamicRenderingTest" />
 		</classes>
 	</test> <!-- Functional Test -->
 </suite> <!-- Complete Suite -->

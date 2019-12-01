@@ -1,7 +1,12 @@
 package tests;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -9,10 +14,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
@@ -67,21 +75,32 @@ public class TestBase {
 	protected SoftAssert sf;
 	private EventFiringWebDriver driver;
 	protected Properties prop;
+	protected DesiredCapabilities caps;
 	
 
 	@BeforeClass
 	public void SetUp() {
+		caps=new DesiredCapabilities();
 		prop = System.getProperties();
 		try {
 			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
 		if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
 			driver = new EventFiringWebDriver(new ChromeDriver());
 		} else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver.exe");
 			driver = new EventFiringWebDriver(new FirefoxDriver());
+		}
+		else if(prop.getProperty("browser").equalsIgnoreCase("IE"))
+		{
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"/src/main/resources/IEDriverServer.exe");
+			caps.setCapability("requireWindowFocus", true);  
+			caps.setCapability("ignoreProtectedModeSettings", true);
+			caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
+			driver = new EventFiringWebDriver(new InternetExplorerDriver(caps));
 		}
 		driver.register(new EventReporter());
 		sf = new SoftAssert();
