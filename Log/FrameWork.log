@@ -1,28 +1,11 @@
-20:15:49.994 [main] INFO  utils.EventReporter - Forgot Password is clicked successfully on https://the-internet.herokuapp.com/
-20:15:52.241 [main] INFO  utils.EventReporter - Retrieve password is clicked successfully on https://the-internet.herokuapp.com/forgot_password
-20:16:07.216 [main] INFO  utils.EventReporter - JavaScript Alerts is clicked successfully on https://the-internet.herokuapp.com/
-20:16:07.303 [main] INFO  utils.EventReporter - Click for JS Confirm is clicked successfully on https://the-internet.herokuapp.com/javascript_alerts
-20:16:51.220 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
-20:16:51.709 [main] INFO  utils.EventReporter - Example 1: Element on page that is hidden is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
-20:16:51.965 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/1
-20:17:10.636 [main] INFO  utils.EventReporter - Frames is clicked successfully on https://the-internet.herokuapp.com/
-20:17:11.598 [main] INFO  utils.EventReporter - Nested Frames is clicked successfully on https://the-internet.herokuapp.com/frames
-20:17:26.815 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
-20:17:27.311 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
-20:17:27.564 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
-20:30:40.108 [main] INFO  utils.EventReporter - Form Authentication is clicked successfully on https://the-internet.herokuapp.com/
-20:30:44.271 [main] INFO  utils.EventReporter - Login is clicked successfully on https://the-internet.herokuapp.com/login
-20:31:01.716 [main] INFO  utils.EventReporter - Infinite Scroll is clicked successfully on https://the-internet.herokuapp.com/
-20:31:21.500 [main] INFO  utils.EventReporter - Multiple Windows is clicked successfully on https://the-internet.herokuapp.com/
-20:31:21.543 [main] INFO  utils.EventReporter - Click Here is clicked successfully on https://the-internet.herokuapp.com/windows
-20:31:35.500 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
-20:31:35.983 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
-20:31:36.235 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
-20:34:09.770 [main] INFO  utils.EventReporter - Form Authentication is clicked successfully on https://the-internet.herokuapp.com/
-20:34:10.959 [main] INFO  utils.EventReporter - Login is clicked successfully on https://the-internet.herokuapp.com/login
-20:34:31.917 [main] INFO  utils.EventReporter - Infinite Scroll is clicked successfully on https://the-internet.herokuapp.com/
-20:34:47.602 [main] INFO  utils.EventReporter - Multiple Windows is clicked successfully on https://the-internet.herokuapp.com/
-20:34:47.699 [main] INFO  utils.EventReporter - Click Here is clicked successfully on https://the-internet.herokuapp.com/windows
-20:35:01.415 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
-20:35:01.930 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
-20:35:02.178 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
+19:16:05.099 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
+19:16:05.728 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
+19:16:05.999 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
+19:17:09.114 [main] INFO  utils.EventReporter - Form Authentication is clicked successfully on https://the-internet.herokuapp.com/
+19:17:10.678 [main] INFO  utils.EventReporter - Login is clicked successfully on https://the-internet.herokuapp.com/login
+19:17:24.623 [main] INFO  utils.EventReporter - Infinite Scroll is clicked successfully on https://the-internet.herokuapp.com/
+19:17:39.379 [main] INFO  utils.EventReporter - Multiple Windows is clicked successfully on https://the-internet.herokuapp.com/
+19:17:39.488 [main] INFO  utils.EventReporter - Click Here is clicked successfully on https://the-internet.herokuapp.com/windows
+19:17:55.945 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
+19:17:56.536 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
+19:17:56.810 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2

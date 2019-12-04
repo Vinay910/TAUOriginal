@@ -2,7 +2,7 @@ package tests;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -16,7 +16,9 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
 
 import com.google.common.io.Files;
@@ -71,17 +73,39 @@ public class TestBase {
 	private EventFiringWebDriver driver;
 	protected Properties prop;
 	protected DesiredCapabilities caps;
+	private ProcessBuilder pb;
+	private Process process;
 	
-
-	@BeforeClass
-	public void SetUp() {
-		caps=new DesiredCapabilities();
+	private void propLoad()
+	{
 		prop = System.getProperties();
 		try {
 			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	@BeforeSuite
+	public void GridSetUp()
+	{
+		propLoad();
+		if(prop.getProperty("grid").equalsIgnoreCase("yes"))
+		{
+			pb = new ProcessBuilder("cmd", "/c", "HubStart.bat");
+			File dir = new File(System.getProperty("user.dir")+"/src/main/resources");
+			pb.directory(dir);
+			try {
+				process=pb.start();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@BeforeClass
+	public void SetUp() {
+		caps=new DesiredCapabilities();
+		propLoad();
 		if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
 			driver = new EventFiringWebDriver(new ChromeDriver());
@@ -133,5 +157,11 @@ public class TestBase {
 				System.out.println("Screenshot is not working");
 			}
 		}
+	}
+	@AfterSuite
+	public void gridDown()
+	{
+		process.destroy();
+		process.destroyForcibly();
 	}
 }
