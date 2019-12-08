@@ -75,9 +75,11 @@ public class TestBase {
 	protected DesiredCapabilities caps;
 	private ProcessBuilder pb;
 	private Process process;
+	private String browserType;
 	
 	private void propLoad()
 	{
+		browserType=System.getProperty("browser");
 		prop = System.getProperties();
 		try {
 			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
@@ -106,14 +108,14 @@ public class TestBase {
 	public void SetUp() {
 		caps=new DesiredCapabilities();
 		propLoad();
-		if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+		if (browserType.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
 			driver = new EventFiringWebDriver(new ChromeDriver());
-		} else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
+		} else if (browserType.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver.exe");
 			driver = new EventFiringWebDriver(new FirefoxDriver());
 		}
-		else if(prop.getProperty("browser").equalsIgnoreCase("IE"))
+		else if(browserType.equalsIgnoreCase("IE"))
 		{
 			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"/src/main/resources/IEDriverServer.exe");
 			caps.setCapability("requireWindowFocus", true);  
