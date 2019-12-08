@@ -79,7 +79,7 @@ public class TestBase {
 	
 	private void propLoad()
 	{
-		browserType=System.getProperty("browser");
+		browserType=System.getProperty("browser_Type");
 		prop = System.getProperties();
 		try {
 			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
