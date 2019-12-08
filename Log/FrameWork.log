@@ -3,3 +3,11 @@
 12:59:10.055 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
 12:59:10.484 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
 12:59:10.574 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
+13:05:30.202 [main] INFO  utils.EventReporter - Form Authentication is clicked successfully on https://the-internet.herokuapp.com/
+13:05:31.119 [main] INFO  utils.EventReporter - Login is clicked successfully on https://the-internet.herokuapp.com/login
+13:05:47.671 [main] INFO  utils.EventReporter - Infinite Scroll is clicked successfully on https://the-internet.herokuapp.com/
+13:06:03.630 [main] INFO  utils.EventReporter - Multiple Windows is clicked successfully on https://the-internet.herokuapp.com/
+13:06:03.673 [main] INFO  utils.EventReporter - Click Here is clicked successfully on https://the-internet.herokuapp.com/windows
+13:06:17.515 [main] INFO  utils.EventReporter - Dynamic Loading is clicked successfully on https://the-internet.herokuapp.com/
+13:06:17.997 [main] INFO  utils.EventReporter - Example 2: Element rendered after the fact is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading
+13:06:18.254 [main] INFO  utils.EventReporter - Start is clicked successfully on https://the-internet.herokuapp.com/dynamic_loading/2
