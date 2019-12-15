@@ -1,4 +1,4 @@
-package wYSIWYNG;
+package wysiwyng;
 
 import org.testng.annotations.Test;
 
@@ -7,12 +7,12 @@ import tests.TestBase;
 public class WYSIWYNGTest extends TestBase{
 	
 	@Test
-	public void EnterDataInFrameVerification()
+	public void enterDataInFrameVerification()
 	{
 		wysiwyngPage=homepage.clickWYSIWYNGLink();
 		wysiwyngPage.clearFrame();
 		wysiwyngPage.clickIndenting();
-		wysiwyngPage.EnterData("My name is Vinayak");
+		wysiwyngPage.enterData("My name is Vinayak");
 	}
 
 }

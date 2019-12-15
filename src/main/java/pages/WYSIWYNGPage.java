@@ -19,7 +19,7 @@ public class WYSIWYNGPage {
 		driver.findElement(childTextArea).clear();
 		switchToMainFrame();
 	}
-	public void EnterData(String value)
+	public void enterData(String value)
 	{
 		switchToChildFrame();
 		driver.findElement(childTextArea).sendKeys(value);

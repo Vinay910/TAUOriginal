@@ -12,7 +12,7 @@ public class InfiniteScrollPage {
 	public InfiniteScrollPage(WebDriver driver) {
 		this.driver=driver;
 	}
-	public void ScrollTo()
+	public void scrollTo()
 	{
 		String script="window.scrollTo(0,document.body.scrollHeight)";
 		JavascriptExecutor js=((JavascriptExecutor)driver);

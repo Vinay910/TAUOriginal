@@ -7,7 +7,7 @@ import tests.TestBase;
 public class OracleTest extends TestBase {
 
 	@Test
-	public void CopyErrorTest()
+	public void copyErrorTest()
 	{
 		oraclePage.loginToTaleo();
 		oraclePage.redirectingToSavedSearchesTab();

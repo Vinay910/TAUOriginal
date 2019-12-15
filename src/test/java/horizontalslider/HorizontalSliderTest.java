@@ -1,4 +1,4 @@
-package horizontalSlider;
+package horizontalslider;
 
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
@@ -11,7 +11,7 @@ public class HorizontalSliderTest extends TestBase{
 	public void validateHorizontalSlider()
 	{
 		horizontalSliderPage=homepage.clickHorizontalSliderLink();
-		String result=horizontalSliderPage.ValidateSlider(Keys.chord(Keys.ARROW_RIGHT,Keys.ARROW_RIGHT,Keys.ARROW_RIGHT,Keys.ARROW_RIGHT));
+		String result=horizontalSliderPage.validateSlider(Keys.chord(Keys.ARROW_RIGHT,Keys.ARROW_RIGHT,Keys.ARROW_RIGHT,Keys.ARROW_RIGHT));
 		sf.assertTrue(result.contains("2"),"Invalid value");
 	}
 }

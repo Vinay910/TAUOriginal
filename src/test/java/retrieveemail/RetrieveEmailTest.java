@@ -1,4 +1,4 @@
-package retrieveEmail;
+package retrieveemail;
 
 import org.testng.annotations.Test;
 

@@ -11,7 +11,7 @@ public class HorizontalSliderPage {
 	public HorizontalSliderPage(WebDriver driver) {
 		this.driver=driver;
 	}
-	public String ValidateSlider(String value)
+	public String validateSlider(String value)
 	{
 		driver.findElement(slider).sendKeys(value);
 		return driver.findElement(result).getText();

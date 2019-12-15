@@ -1,4 +1,4 @@
-package dropDown;
+package dropdown;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import tests.TestBase;
 public class DropDownTest extends TestBase{
 	
 	@Test
-	public void DropDownCheck()
+	public void dropDownCheck()
 	{
 		dropDownPage=homepage.clickingDropDownLink();
 		dropDownPage.selectOption("Option 1");

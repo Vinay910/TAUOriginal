@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class LoginSuccesstest extends TestBase {
 
 	@Test
-	public void LoginSucessTest1()
+	public void loginSucessTest1()
 	{
 		loginPage=homepage.clickingAuthenticationLink();
 		loginPage.enterCred("tomsmith", "SuperSecretPassword!");

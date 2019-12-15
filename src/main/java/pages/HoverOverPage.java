@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 public class HoverOverPage {
 	
 	private WebDriver driver;
-	private By HoverAll=By.className("figure");
+	private By hoverAll=By.className("figure");
 	public HoverOverPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -19,10 +19,10 @@ public class HoverOverPage {
 	 * position of a list
 	 * @param index
 	 */
-	public FigureInner HoverOver(int index)
+	public FigureInner hoverOver(int index)
 	{
 		Actions actions=new Actions(driver);
-		WebElement figure=driver.findElements(HoverAll).get(index-1);
+		WebElement figure=driver.findElements(hoverAll).get(index-1);
 	    actions.moveToElement(figure).build().perform();
 	    return new FigureInner(figure);
 	}
@@ -33,20 +33,20 @@ public class HoverOverPage {
 		{
 			this.figure=figure;
 		}
-		private By Heading=By.tagName("h5");
-		private By Link=By.tagName("a");
+		private By heading=By.tagName("h5");
+		private By link=By.tagName("a");
 		
 		public String validateHeading()
 		{
-			return figure.findElement(Heading).getText();
+			return figure.findElement(heading).getText();
 		}
 		public boolean validateLinkDisplayed()
 		{
-			return figure.findElement(Link).isDisplayed();
+			return figure.findElement(link).isDisplayed();
 		}
 		public String validateLinkText()
 		{
-			return figure.findElement(Link).getAttribute("href");
+			return figure.findElement(link).getAttribute("href");
 		}
 		
 	}

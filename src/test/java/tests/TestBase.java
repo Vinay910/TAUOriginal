@@ -80,54 +80,55 @@ public class TestBase {
 	//private EventFiringWebDriver driver;
 	protected Properties prop;
 	protected DesiredCapabilities caps;
-	private ProcessBuilder pb;
 	private Process process;
 	private String browserType;
 	private WebDriver normalDriver;
+	private String userPath;
 	
 	private void propLoad()
 	{
 		browserType=System.getProperty("browser_type");
+		userPath=System.getProperty("user.dir");
 		prop = System.getProperties();
 		try {
-			prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/main/resources/Prop.properties")));
+			prop.load(new FileInputStream(new File(userPath+"/src/main/resources/Prop.properties")));
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 	@BeforeSuite
-	public void GridSetUp()
+	public void gridSetUp()
 	{
 		propLoad();
 		if(prop.getProperty("grid").equalsIgnoreCase("yes"))
 		{
-			pb = new ProcessBuilder("cmd", "/c", "HubStart.bat");
-			File dir = new File(System.getProperty("user.dir")+"/src/main/resources");
+			ProcessBuilder pb=new ProcessBuilder("cmd", "/c", "HubStart.bat");
+			File dir = new File(userPath+"/src/main/resources");
 			pb.directory(dir);
 			try {
 				process=pb.start();
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.getMessage();
 			}
 		}
 	}
 
 	@BeforeClass
-	public void SetUp() throws MalformedURLException {
+	public void setUp() throws MalformedURLException {
 		caps=new DesiredCapabilities();
 		propLoad();
 		if (browserType.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", userPath+"/src/main/resources/chromedriver.exe");
 			//driver = new EventFiringWebDriver(new ChromeDriver());
 			normalDriver=new ChromeDriver();
 		} else if (browserType.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", userPath+"/src/main/resources/geckodriver.exe");
 			//driver = new EventFiringWebDriver(new FirefoxDriver());
 			normalDriver=new FirefoxDriver();
 		}
 		else if(browserType.equalsIgnoreCase("IE"))
 		{
-			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"/src/main/resources/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", userPath+"/src/main/resources/IEDriverServer.exe");
 			caps.setCapability("requireWindowFocus", true);  
 			caps.setCapability("ignoreProtectedModeSettings", true);
 			caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
@@ -136,7 +137,7 @@ public class TestBase {
 		}
 		else if(browserType.equalsIgnoreCase("chromeremote"))
 		{
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", userPath+"/src/main/resources/chromedriver.exe");
 			caps=DesiredCapabilities.chrome();
 			caps.setBrowserName("chrome");
 			caps.setPlatform(Platform.LINUX);
@@ -155,7 +156,7 @@ public class TestBase {
 	}
 
 	@AfterClass
-	public void TearDown() {
+	public void tearDown() {
 		Object[] win=normalDriver.getWindowHandles().toArray();
 		for(int i=0;i<win.length;i++)
 		{
@@ -172,11 +173,11 @@ public class TestBase {
 			File file = camera.getScreenshotAs(OutputType.FILE);
 			try {
 				long time=System.currentTimeMillis();
-				new File(System.getProperty("user.dir")+"/src/main/java/screenshot/"+time).mkdir();
+				new File(userPath+"/src/main/java/screenshot/"+time).mkdir();
 				Files.move(file, new File(
-						System.getProperty("user.dir")+"/src/main/java/screenshot/"+time+"/" + result.getName()+".jpg"));
+						userPath+"/src/main/java/screenshot/"+time+"/" + result.getName()+".jpg"));
 			} catch (Exception e) {
-				System.out.println("Screenshot is not working");
+				e.getMessage();
 			}
 		}
 	}

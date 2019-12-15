@@ -6,19 +6,19 @@ import org.openqa.selenium.WebDriver;
 public class DynamicLoadingPage {
 	
 	WebDriver driver;
-	private By HiddenLink=By.xpath("//a[contains(text(),'Example 1: Element on page that is hidden')]");
-	private By RenderingLink=By.xpath("//a[contains(text(),'Example 2: Element rendered after the fact')]");
+	private By hiddenLink=By.xpath("//a[contains(text(),'Example 1: Element on page that is hidden')]");
+	private By renderingLink=By.xpath("//a[contains(text(),'Example 2: Element rendered after the fact')]");
 	public DynamicLoadingPage(WebDriver driver) {
 		this.driver=driver;
 	}
-	public DynamicHiddenPage HiddenClick()
+	public DynamicHiddenPage hiddenClick()
 	{
-		driver.findElement(HiddenLink).click();
+		driver.findElement(hiddenLink).click();
 		return new DynamicHiddenPage(driver);
 	}
-	public DynamicRenderingPage RenderingClick()
+	public DynamicRenderingPage renderingClick()
 	{
-		driver.findElement(RenderingLink).click();
+		driver.findElement(renderingLink).click();
 		return new DynamicRenderingPage(driver);
 	}
 }

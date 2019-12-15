@@ -1,4 +1,4 @@
-package infinteScroll;
+package infintescroll;
 
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class InfiniteScrollTest extends TestBase{
 	public void validateInfiteScroll()
 	{
 		infiniteScrollPage=homepage.clickingInfiniteScrollLink();
-		infiniteScrollPage.ScrollTo();
+		infiniteScrollPage.scrollTo();
 	}
 
 }

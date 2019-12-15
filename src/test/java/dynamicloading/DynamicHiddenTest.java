@@ -1,4 +1,4 @@
-package dynamicLoading;
+package dynamicloading;
 
 import org.testng.annotations.Test;
 
@@ -8,8 +8,8 @@ public class DynamicHiddenTest extends TestBase{
 	@Test
 	public void verifyDynamicLoad()
 	{
-		dynamicLoadingPage=homepage.DynamicLoadingLink();
-		dynamicHiddenPage=dynamicLoadingPage.HiddenClick();
+		dynamicLoadingPage=homepage.dynamicLoadingLink();
+		dynamicHiddenPage=dynamicLoadingPage.hiddenClick();
 		sf.assertTrue(dynamicHiddenPage.clickAndValidate().contains("Hello"),"Invalid value returned");
 		sf.assertAll();
 		

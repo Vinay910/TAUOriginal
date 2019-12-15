@@ -24,7 +24,7 @@ public class OraclePage {
 			"//div[@class='search-criteria-tab__actions-item-group search-criteria-tab__actions-item-group--left']/div[2]//span[@class='oj-button-text']");
 	private By comment = By.xpath("//textarea[@id='comments-value|input']");
 	private By spinner = By.xpath(".//div[@id=\"spinner\"]");
-	private By TextBox = By.xpath("//textarea[@id='searchTermCheckBoxValue|input']");
+	private By textBox = By.xpath("//textarea[@id='searchTermCheckBoxValue|input']");
 	private By threeDot=By.xpath("//div[@class='oj-button-label'][1]//span[@slot='startIcon']");
 	private By createFolder=By.xpath("//span[contains(text(),'Create Folder')]");
 	public OraclePage(WebDriver driver) {
@@ -50,7 +50,7 @@ public class OraclePage {
 		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(spinner)));
 		driver.findElement(queryName).click();
 		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(spinner)));
-		WebElement textBox1 = driver.findElement(TextBox);
+		WebElement textBox1 = driver.findElement(textBox);
 		textBox1.sendKeys(longmessage);
 		act.moveToElement(textBox1).doubleClick().build().perform();
 		textBox1.sendKeys(Keys.chord(Keys.CONTROL, "c"));

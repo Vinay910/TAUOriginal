@@ -13,8 +13,7 @@ public class EmailSentPage {
 	}
 	public String validateMsg()
 	{
-		String msg1=driver.findElement(msg).getText();
-		return msg1;
+		return driver.findElement(msg).getText();
 	}
 	
 }

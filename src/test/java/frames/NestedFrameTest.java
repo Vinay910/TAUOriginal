@@ -7,7 +7,7 @@ import tests.TestBase;
 public class NestedFrameTest extends TestBase{
 	
 	@Test
-	public void FrameTextVerification()
+	public void frameTextVerification()
 	{
 		framesPage=homepage.clickFrameLink();
 		nestedFramePage=framesPage.nestedLinkClick();

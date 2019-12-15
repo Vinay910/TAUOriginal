@@ -10,16 +10,16 @@ public class ForgotPasswordPage {
 	{
 		this.driver=driver;
 	}
-	private By Email=By.xpath("//input[@id='email']");
-	private By RetrievePassword=By.xpath("//button[@id='form_submit']");
+	private By emailLocal=By.xpath("//input[@id='email']");
+	private By retrievePassword=By.xpath("//button[@id='form_submit']");
 	
 	public void enterEmail(String email)
 	{
-		driver.findElement(Email).sendKeys(email);
+		driver.findElement(emailLocal).sendKeys(email);
 	}
 	public EmailSentPage clickRetrieve()
 	{
-		driver.findElement(RetrievePassword).click();
+		driver.findElement(retrievePassword).click();
 		return new EmailSentPage(driver);
 	}
 }

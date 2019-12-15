@@ -1,4 +1,4 @@
-package dynamicLoading;
+package dynamicloading;
 
 import org.testng.annotations.Test;
 
@@ -9,8 +9,8 @@ public class DynamicRenderingTest extends TestBase{
 @Test	
 public void validateDynamicRendering()
 {
-	dynamicLoadingPage=homepage.DynamicLoadingLink();
-	dynamicRenderingPage=dynamicLoadingPage.RenderingClick();
+	dynamicLoadingPage=homepage.dynamicLoadingLink();
+	dynamicRenderingPage=dynamicLoadingPage.renderingClick();
 	sf.assertTrue(dynamicRenderingPage.validateDynamicRendering().contains("Hello"),"Invalid Text");
 }
 }

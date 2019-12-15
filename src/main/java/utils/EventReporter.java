@@ -14,73 +14,67 @@ public class EventReporter implements WebDriverEventListener {
 	private String pageName;
 
 	public void beforeAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void afterAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void afterAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented	
 	}
 
 	public void beforeAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void beforeNavigateTo(String url, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void afterNavigateTo(String url, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void afterNavigateBack(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void beforeNavigateForward(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void afterNavigateForward(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void beforeNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void afterNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void afterFindBy(By by, WebElement element, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void beforeClickOn(WebElement element, WebDriver driver) {
@@ -93,28 +87,26 @@ public class EventReporter implements WebDriverEventListener {
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void beforeScript(String script, WebDriver driver) {
-		// TODO Auto-generated method stub
+		//Not implemented
 		
 	}
 
 	public void afterScript(String script, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+
+		//Not implemented
 	}
 
 	public void onException(Throwable throwable, WebDriver driver) {
-		// TODO Auto-generated method stub
-		
+		//Not implemented
 	}
 
 	

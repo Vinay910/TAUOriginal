@@ -14,7 +14,6 @@ public class SuccessLoginPage{
 	}
 	public String validateSuccess()
 	{
-		String msg=driver.findElement(successMessage).getText();
-		return msg;
+		return driver.findElement(successMessage).getText();
 	}
 }
