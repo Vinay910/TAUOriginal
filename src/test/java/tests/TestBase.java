@@ -3,15 +3,20 @@ package tests;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -41,6 +46,7 @@ import pages.KeysPressesPage;
 import pages.LoginPage;
 import pages.MultiplePage;
 import pages.NestedFramePage;
+import pages.OraclePage;
 import pages.SuccessLoginPage;
 import pages.WYSIWYNGPage;
 import utils.EventReporter;
@@ -69,13 +75,15 @@ public class TestBase {
 	protected InfiniteScrollPage infiniteScrollPage;
 	protected MultiplePage multiplePage;
 	protected WindowNavigator windowNavigator;
+	protected OraclePage oraclePage;
 	protected SoftAssert sf;
-	private EventFiringWebDriver driver;
+	//private EventFiringWebDriver driver;
 	protected Properties prop;
 	protected DesiredCapabilities caps;
 	private ProcessBuilder pb;
 	private Process process;
 	private String browserType;
+	private WebDriver normalDriver;
 	
 	private void propLoad()
 	{
@@ -105,15 +113,17 @@ public class TestBase {
 	}
 
 	@BeforeClass
-	public void SetUp() {
+	public void SetUp() throws MalformedURLException {
 		caps=new DesiredCapabilities();
 		propLoad();
 		if (browserType.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
-			driver = new EventFiringWebDriver(new ChromeDriver());
+			//driver = new EventFiringWebDriver(new ChromeDriver());
+			normalDriver=new ChromeDriver();
 		} else if (browserType.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver.exe");
-			driver = new EventFiringWebDriver(new FirefoxDriver());
+			//driver = new EventFiringWebDriver(new FirefoxDriver());
+			normalDriver=new FirefoxDriver();
 		}
 		else if(browserType.equalsIgnoreCase("IE"))
 		{
@@ -121,26 +131,36 @@ public class TestBase {
 			caps.setCapability("requireWindowFocus", true);  
 			caps.setCapability("ignoreProtectedModeSettings", true);
 			caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
-			driver = new EventFiringWebDriver(new InternetExplorerDriver(caps));
+			//driver = new EventFiringWebDriver(new InternetExplorerDriver(caps));
+			normalDriver=new InternetExplorerDriver(caps);
 		}
-		driver.register(new EventReporter());
+		else if(browserType.equalsIgnoreCase("chromeremote"))
+		{
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe");
+			caps=DesiredCapabilities.chrome();
+			caps.setBrowserName("chrome");
+			caps.setPlatform(Platform.LINUX);
+			normalDriver=new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), caps);
+		}
+		//driver.register(new EventReporter());
 		sf = new SoftAssert();
 		goToHome();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		homepage = new HomePage(driver);
+		normalDriver.manage().window().maximize();
+		normalDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//oraclePage= new OraclePage(normalDriver);
+		homepage = new HomePage(normalDriver);
 	}
 	private void goToHome() {
-		driver.get(prop.getProperty("URL"));
+		normalDriver.get(prop.getProperty("URL"));
 	}
 
 	@AfterClass
 	public void TearDown() {
-		Object[] win=driver.getWindowHandles().toArray();
+		Object[] win=normalDriver.getWindowHandles().toArray();
 		for(int i=0;i<win.length;i++)
 		{
-		driver.switchTo().window(win[i].toString());
-		driver.close();
+			normalDriver.switchTo().window(win[i].toString());
+			normalDriver.close();
 		}
 	}
 
@@ -148,7 +168,7 @@ public class TestBase {
 	public void captureFailure(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 		
-			TakesScreenshot camera = (TakesScreenshot) driver;
+			TakesScreenshot camera = (TakesScreenshot) normalDriver;
 			File file = camera.getScreenshotAs(OutputType.FILE);
 			try {
 				long time=System.currentTimeMillis();

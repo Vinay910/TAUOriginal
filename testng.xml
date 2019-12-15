@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Complete Suite">
-  <test name="System Test">
+<suite name="Suite">
+  <test name="Test">
     <classes>
       <class name="tests.LoginSuccesstest"/>
-      <class name="infinteScroll.InfiniteScrollTest"/>
-      <class name="navigation.NavigationTest"/>
-      <class name="dynamicLoading.DynamicRenderingTest"/>
     </classes>
-  </test> <!-- System Test -->
-</suite> <!-- Complete Suite -->
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

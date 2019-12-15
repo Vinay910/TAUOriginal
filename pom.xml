@@ -4,6 +4,12 @@
 	<groupId>com.TAU</groupId>
 	<artifactId>TAU</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<sonar.projectKey>Vinay910_TAUOriginal</sonar.projectKey>
+		<sonar.organization>vinay910</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>15486abd0d1dd97ffd296fb154a0b81caac66daf</sonar.login>
+	</properties>
 	<build>
 		<resources>
 			<resource>

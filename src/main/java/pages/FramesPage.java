@@ -7,7 +7,6 @@ public class FramesPage {
 	
 	WebDriver driver;
 	private By nestedFrames=By.xpath("//a[contains(text(),'Nested Frames')]");
-	//private By iFrames=By.xpath("//a[contains(text(),'iFrame')]");
 	public FramesPage(WebDriver driver) {
 		this.driver=driver;
 	}

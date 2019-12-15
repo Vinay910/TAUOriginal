@@ -32,12 +32,7 @@ public class DropDownPage {
 	}
 	private Select intializingDropdown()
 	{
-		Select select=new Select(driver.findElement(dropDown));
-		return select;
-	}
-	public void selectionOptionsUsingJS()
-	{
-		
+		return new Select(driver.findElement(dropDown));
 	}
 
 }
